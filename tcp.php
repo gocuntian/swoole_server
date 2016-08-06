@@ -8,7 +8,7 @@ $conf = new \Noodlehaus\Config(CONFPATH);
 define('SERVER_MODE',$conf->get('server.main.mode'));
 
 // 定义网络层 UDP、TCP
-$server = new Nosun\Swoole\Manager\WebSocketBox($conf->get('server'));
+$server = new Nosun\Swoole\Manager\TcpBox($conf->get('server'));
 
 // 启动Server
 $server->run();

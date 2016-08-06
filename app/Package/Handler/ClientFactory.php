@@ -4,14 +4,8 @@ class ClientFactory {
 
     public static function createApp($pid){
         switch ($pid){
-            case 'pc':
-                return new Pc();
-                break;
-            case 'wx':
-                return new Wx();
-                break;
-            case 'server':
-                return new Server();
+            case 'apple':
+                return new Apple();
                 break;
             default;
                 throw new \Exception($pid);

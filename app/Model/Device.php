@@ -2,7 +2,7 @@
 
 use Nosun\Swoole\Client\Redis;
 
-class DeviceRedis {
+class Device {
 
     private $redis;
     static  $prefix = "yun_";
