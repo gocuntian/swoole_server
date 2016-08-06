@@ -1,14 +1,16 @@
 {
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "hassankhan/config": "^0.8.2",
-    "nosun/swoole": "0.1",
+    "nosun/swoole": "dev-master",
     "symfony/yaml": "2.5",
     "ssdb/phpssdb": "dev-master",
     "katzgrau/klogger": "dev-master"
   },
 
   "autoload":{
-      "classmap": ["Third/"],
+      "classmap": ["third/"],
       "files":["helper/function.php"],
       "psr-4": {
           "Noodlehaus\\": "vendor/hassankhan/config/src",

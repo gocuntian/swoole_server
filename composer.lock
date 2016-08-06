@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "22f4093ce24d3f937379a4c8c817abac",
-    "content-hash": "8b296fac8d99eafbbd6a081ec633c314",
+    "hash": "c5e5f7a6a853684eca9a388cef31bd6c",
+    "content-hash": "e4749488057566f2556d14d3c1ce20c6",
     "packages": [
         {
             "name": "hassankhan/config",
@@ -113,6 +113,45 @@
                 "logging"
             ],
             "time": "2015-11-04 22:43:22"
+        },
+        {
+            "name": "nosun/swoole",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nosun/swoole.git",
+                "reference": "693fd5181049f67e789916cd7be473b2ca2163d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nosun/swoole/zipball/693fd5181049f67e789916cd7be473b2ca2163d9",
+                "reference": "693fd5181049f67e789916cd7be473b2ca2163d9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nosun\\Swoole\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nosun",
+                    "email": "nosun2008@126.com"
+                }
+            ],
+            "description": "php tcp server by swoole",
+            "keywords": [
+                "tcp swoole"
+            ],
+            "time": "2016-08-06 06:52:03"
         },
         {
             "name": "psr/log",
@@ -244,12 +283,13 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
+        "nosun/swoole": 20,
         "ssdb/phpssdb": 20,
         "katzgrau/klogger": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
