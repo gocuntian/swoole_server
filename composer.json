@@ -1,0 +1,18 @@
+{
+  "require": {
+    "hassankhan/config": "^0.8.2",
+    "symfony/yaml": "2.5",
+    "ssdb/phpssdb": "dev-master",
+    "katzgrau/klogger": "dev-master"
+  },
+
+  "autoload":{
+      "classmap": ["Third/"],
+      "files":["helper/function.php"],
+      "psr-4": {
+          "Nosun\\Swoole\\": "libs/nosun/Swoole/",
+          "Noodlehaus\\": "vendor/hassankhan/config/src",
+          "App\\": "app/"
+      }
+  }
+}
