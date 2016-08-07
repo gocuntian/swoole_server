@@ -47,7 +47,7 @@ php tcp.php restart
 原始的协议如下： https://github.com/nosun/skyiot/blob/master/protocol/standard/T.md
 
 本项目做了几点主要的修改：
-1. 关键字 `cmd` 修改为 `action`
-2. data 中的 json array，修改为 json对象，去除 双引号的格式
-3. 去除pkey等安全相关的验证环节。
-4. pid 设置为产品类型，为上传过程中的必填字段 （这里有点偷懒了，后面有需要在优化）
+- 关键字 `cmd` 修改为 `action`
+- data 中的 json array，修改为 json对象，去除 双引号的格式
+- 去除pkey等安全相关的验证环节。
+- pid 设置为产品类型，为上传过程中的必填字段 （这里有点偷懒了，后面有需要在优化）
