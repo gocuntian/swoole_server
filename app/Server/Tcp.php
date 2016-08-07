@@ -6,6 +6,7 @@ use App\Helper\LoggerHelper;
 use App\Model\Device;
 use App\Package\Package;
 use App\Package\Handler\ClientFactory;
+use SSDB\Exception;
 
 define('SUCCESS',200);
 define('ARGUMENT_ERROR',400);
@@ -55,16 +56,24 @@ class Tcp extends Base {
                     return;
                 }
 
+                if($json_d['action'] == 'heartbeat'){
+                    $this->doHeartbeat($fd,$json_d);
+                    return;
+                }
+
                 try {
-                    $from = $json_d['pid'];
-                    $client = ClientFactory::createApp($from);
+                    $pid = isset($json_d['pid']) ? $json_d['pid'] : '';
+                    if(empty($pid)){
+                        $this->forbidden($fd,'No pid');
+                    }
+                    $client = ClientFactory::createApp($pid);
                     $client->init($this->server, $this->redis, $this->logger);
 
                     if (false == $client->doCheck($fd,$json_d)) {
                         $client->forbidden($fd,'bad Action');
                     }
 
-                    $action = 'do' . ucfirst($json_d['cmd']);
+                    $action = 'do' . ucfirst($json_d['action']);
                     $client->$action($fd, $json_d);
 
                 } catch (\Exception $e){
@@ -75,19 +84,30 @@ class Tcp extends Base {
     }
 
     public function onClose($server, $fd, $fromId){
-        $this->logger->info("Client[$fd@$fromId] closed");
         $mac = $this->redis->getFd($fd);
+        $this->logger->info("Client[$fd@$fromId], mac: $mac");
         if($mac){
             $pid = $this->redis->getDeviceAttr($mac,'pid');
             if($pid){
                 $factory = new ClientFactory();
                 $client = $factory->createApp($pid);
+                $client->init($this->server, $this->redis, $this->logger);
                 $client->setOffline($mac,$fd);
             }
         }
     }
 
+    public function doHeartbeat($fd,$data){
+        $download = array(
+            'sn'     => $data['sn'],
+            'action' => $data['action'],
+        );
+        $download = json_encode($download)."\n";
+        $this->server->send($fd, $download);
+    }
+
     // close the connect and do something
+
     protected function forbidden($fd,$message){
         $this->logger->error($message);
         $this->closeConnection($fd);
