@@ -6,7 +6,8 @@
     "nosun/swoole": "dev-master",
     "symfony/yaml": "2.5",
     "ssdb/phpssdb": "dev-master",
-    "katzgrau/klogger": "dev-master"
+    "katzgrau/klogger": "dev-master",
+    "league/container": "^2.2"
   },
 
   "autoload":{

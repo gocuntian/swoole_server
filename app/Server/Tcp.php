@@ -24,7 +24,7 @@ class Tcp extends Base {
 
     public function __construct(){
         parent::__construct();
-        $this->conf   = Config::load(CONFPATH . 'app.php');
+        $this->conf   = Config::load(CONF_PATH . 'app.php');
         $this->redis  = new Device();
         $this->logger = LoggerHelper::getInstance();
     }

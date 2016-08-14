@@ -1,7 +1,5 @@
 <?php namespace App\Model;
 
-use Nosun\Swoole\Client\Redis;
-
 class Device {
 
     private $redis;
@@ -16,9 +14,7 @@ class Device {
     static  $wx_fd  ='wx_f_';
 
     public function __construct(){
-
-        $redis = new Redis();
-        $this->redis = $redis;
+        $this->redis = \Container::getInstance()->get('Redis');
     }
 
     public function setMac($key,$value){

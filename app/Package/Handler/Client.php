@@ -68,8 +68,7 @@ abstract class Client
     }
 
     protected function getHeartbeat(){
-        global $conf;
-        return $period = $conf->get('server.main.heart',60);
+        return $period = 60;
     }
 
     // 下发到 device

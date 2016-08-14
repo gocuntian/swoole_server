@@ -1,7 +1,8 @@
 <?php
 
 // 定义根目录
-define('BASEPATH', dirname(__FILE__));
-define('CONFPATH', BASEPATH . '/config/');
+define('BASE_PATH', dirname(__FILE__));
+define('CONF_PATH', BASE_PATH . '/config/');
+define('SERVER_MODE','debug');
 
-require_once BASEPATH .'/vendor/autoload.php';
+require_once BASE_PATH .'/vendor/autoload.php';

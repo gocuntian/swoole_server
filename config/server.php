@@ -30,7 +30,7 @@ return [
             'open_cpu_affinity' => 1,
             'open_tcp_nodelay'  => 1,
             'dispatch_mode' => 2,                // 转发模式
-            'daemonize' => 0,                    // 守护进程
+            'daemonize' => 1,                    // 守护进程
             'log_file' => "logs/tcp_server.log"  // 系统日志
             //task_worker_num = 2                // task worker 开启的线程数量
             //task_max_request                   // task worker 最大请求数量

@@ -10,7 +10,7 @@ class LoggerHelper
 
     public static function getInstance(){
         if(!(self::$_instance instanceof Logger)){
-            $conf = Config::load(CONFPATH . 'app.php');
+            $conf = Config::load(CONF_PATH . 'app.php');
              self::$_instance = new Logger(
                 $conf->get('app.log_path'),
                 $conf->get('app.logLevel'),
